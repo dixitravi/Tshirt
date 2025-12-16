@@ -1,433 +1,434 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Polo T-Shirt Dashboard</title>
+  <base target="_top" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Polo T-Shirt Dashboard</title>
 
-    <!-- Bootstrap 5 CSS -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    />
-    <!-- Icons -->
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-    />
+  <!-- Bootstrap 5 CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <!-- Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+  />
 
-    <style>
-        :root {
-            --glass-bg: rgba(15, 23, 42, 0.70);
-            --glass-border: rgba(148, 163, 184, 0.35);
-            --text-main: #e5e7eb;
-            --text-muted: #9ca3af;
-            --accent: #38bdf8;
-        }
+  <style>
+    :root {
+      --glass-bg: rgba(15, 23, 42, 0.70);
+      --glass-border: rgba(148, 163, 184, 0.35);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --accent: #38bdf8;
+    }
 
-        * {
-            box-sizing: border-box;
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        body {
-            min-height: 100vh;
-            margin: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                sans-serif;
-            color: var(--text-main);
-            overflow-x: hidden;
-            position: relative;
-        }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      color: var(--text-main);
+      overflow-x: hidden;
+      position: relative;
+    }
 
-        .bg-layer {
-            position: fixed;
-            inset: 0;
-            background:
-                linear-gradient(to bottom right, rgba(0,0,0,0.65), rgba(15,23,42,0.9)),
-                url("tshirt_BG.jpg") center/cover no-repeat;
-            filter: blur(6px);
-            transform: scale(1.03);
-            z-index: -1;
-        }
+    .bg-layer {
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(to bottom right, rgba(0,0,0,0.65), rgba(15,23,42,0.9)),
+        url("tshirt_BG.jpg") center/cover no-repeat;
+      filter: blur(6px);
+      transform: scale(1.03);
+      z-index: -1;
+    }
 
-        .bg-glass {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(22px) saturate(160%);
-            -webkit-backdrop-filter: blur(22px) saturate(160%);
-            box-shadow:
-                0 10px 30px rgba(15, 23, 42, 0.7),
-                0 0 0 1px rgba(15, 23, 42, 0.7);
-        }
+    .bg-glass {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(22px) saturate(160%);
+      -webkit-backdrop-filter: blur(22px) saturate(160%);
+      box-shadow:
+        0 10px 30px rgba(15, 23, 42, 0.7),
+        0 0 0 1px rgba(15, 23, 42, 0.7);
+    }
 
-        main {
-            color: var(--text-main);
-        }
+    main {
+      color: var(--text-main);
+    }
 
-        .card.bg-glass {
-            border-radius: 1rem;
-        }
+    .card.bg-glass {
+      border-radius: 1rem;
+    }
 
-        .card-header {
-            border-bottom-color: rgba(148, 163, 184, 0.25);
-        }
+    .card-header {
+      border-bottom-color: rgba(148, 163, 184, 0.25);
+    }
 
-        .form-label,
-        .table,
-        .card-header h5,
-        h1,
-        h4 {
-            color: var(--text-main);
-        }
+    .form-label,
+    .table,
+    .card-header h5,
+    h1,
+    h4 {
+      color: var(--text-main);
+    }
 
-        .text-muted {
-            color: var(--text-muted) !important;
-        }
+    .text-muted {
+      color: var(--text-muted) !important;
+    }
 
-        .form-control,
-        .form-select {
-            background-color: rgba(15, 23, 42, 0.85);
-            border-color: rgba(148, 163, 184, 0.4);
-            color: var(--text-main);
-        }
+    .form-control,
+    .form-select {
+      background-color: rgba(15, 23, 42, 0.85);
+      border-color: rgba(148, 163, 184, 0.4);
+      color: var(--text-main);
+    }
 
-        .form-control:focus,
-        .form-select:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.6);
-        }
+    .form-control:focus,
+    .form-select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.6);
+    }
 
-        .btn-primary {
-            background: linear-gradient(135deg, #0ea5e9, #6366f1);
-            border: none;
-        }
+    .btn-primary {
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      border: none;
+    }
 
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #0284c7, #4f46e5);
-        }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #0284c7, #4f46e5);
+    }
 
-        .btn-outline-secondary {
-            border-color: rgba(148, 163, 184, 0.6);
-            color: var(--text-main);
-        }
+    .btn-outline-secondary {
+      border-color: rgba(148, 163, 184, 0.6);
+      color: var(--text-main);
+    }
 
-        .btn-outline-secondary:hover {
-            background: rgba(148, 163, 184, 0.1);
-        }
+    .btn-outline-secondary:hover {
+      background: rgba(148, 163, 184, 0.1);
+    }
 
-        .table-responsive {
-            border-radius: 0.75rem;
-            overflow: hidden;
-        }
+    .table-responsive {
+      border-radius: 0.75rem;
+      overflow: hidden;
+    }
 
-        .table-dark-glass {
-            --bs-table-bg: transparent;
-            --bs-table-color: var(--text-main);
-            --bs-table-border-color: rgba(148, 163, 184, 0.3);
-        }
+    .table-dark-glass {
+      --bs-table-bg: transparent;
+      --bs-table-color: var(--text-main);
+      --bs-table-border-color: rgba(148, 163, 184, 0.3);
+    }
 
-        .table-dark-glass thead {
-            background: rgba(15, 23, 42, 0.9);
-        }
+    .table-dark-glass thead {
+      background: rgba(15, 23, 42, 0.9);
+    }
 
-        .table-dark-glass tbody tr:nth-child(even) {
-            background: rgba(15, 23, 42, 0.5);
-        }
+    .table-dark-glass tbody tr:nth-child(even) {
+      background: rgba(15, 23, 42, 0.5);
+    }
 
-        .table-dark-glass tbody tr:nth-child(odd) {
-            background: rgba(15, 23, 42, 0.3);
-        }
+    .table-dark-glass tbody tr:nth-child(odd) {
+      background: rgba(15, 23, 42, 0.3);
+    }
 
-        .table-dark-glass tbody tr:hover {
-            background: rgba(56, 189, 248, 0.15);
-        }
+    .table-dark-glass tbody tr:hover {
+      background: rgba(56, 189, 248, 0.15);
+    }
 
-        .no-data {
-            text-align: center;
-            color: var(--text-muted);
-            font-style: italic;
-            padding: 1rem 0;
-        }
+    .no-data {
+      text-align: center;
+      color: var(--text-muted);
+      font-style: italic;
+      padding: 1rem 0;
+    }
 
-        .form-content {
-            height: 0;
-            overflow: hidden;
-            transition: height 0.25s ease;
-        }
+    .form-content {
+      height: 0;
+      overflow: hidden;
+      transition: height 0.25s ease;
+    }
 
-        .form-content-inner {
-            padding: 1rem 1.25rem;
-        }
+    .form-content-inner {
+      padding: 1rem 1.25rem;
+    }
 
-        .btn-sm-pill {
-            border-radius: 999px;
-        }
+    .btn-sm-pill {
+      border-radius: 999px;
+    }
 
-        .chart-card canvas {
-            max-width: 100%;
-        }
+    .chart-card canvas {
+      max-width: 100%;
+    }
 
-        .logo-circle {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            background: #ffffff;
-            border: 2px solid #000000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-        .logo-circle img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
+    .logo-circle {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 2px solid #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .logo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
 
-        .charts-row .card {
-            min-height: 260px;
-        }
+    .charts-row .card {
+      min-height: 260px;
+    }
 
-        .modal-content {
-            background: rgba(15, 23, 42, 0.95);
-            border-radius: 1rem;
-            border: 1px solid rgba(148, 163, 184, 0.5);
-            color: var(--text-main);
-        }
+    .modal-content {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 1rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--text-main);
+    }
 
-        .modal-header {
-            border-bottom-color: rgba(148, 163, 184, 0.25);
-        }
+    .modal-header {
+      border-bottom-color: rgba(148, 163, 184, 0.25);
+    }
 
-        .modal-footer {
-            border-top-color: rgba(148, 163, 184, 0.25);
-        }
+    .modal-footer {
+      border-top-color: rgba(148, 163, 184, 0.25);
+    }
 
-        .group-row {
-            background: rgba(15, 23, 42, 0.85) !important;
-            font-weight: 600;
-        }
-    </style>
+    .group-row {
+      background: rgba(15, 23, 42, 0.85) !important;
+      font-weight: 600;
+    }
+  </style>
 </head>
 <body>
 <div class="bg-layer"></div>
 
 <div class="container-fluid py-3 position-relative">
-    <main class="col-12">
-        <div class="bg-glass rounded-4 px-4 py-3 mb-3">
-            <div class="d-flex flex-wrap justify-content-between align-items-center">
-                <div class="d-flex align-items-center">
-                    <div class="logo-circle me-3">
-                        <img src="LOGO-removebg-preview.png" alt="Bawli Toli Logo" />
-                    </div>
-                    <div>
-                        <h1 class="h4 mb-1">Bawli Toli – Polo T‑Shirt Dashboard</h1>
-                        <p class="text-muted mb-0">
-                            Capture user T‑shirt preferences and see live statistics for colors and sizes.
-                        </p>
-                    </div>
+  <main class="col-12">
+    <div class="bg-glass rounded-4 px-4 py-3 mb-3">
+      <div class="d-flex flex-wrap justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+          <div class="logo-circle me-3">
+            <img src="LOGO-removebg-preview.png" alt="Bawli Toli Logo" />
+          </div>
+          <div>
+            <h1 class="h4 mb-1">Bawli Toli – Polo T‑Shirt Dashboard</h1>
+            <p class="text-muted mb-0">
+              Capture user T‑shirt preferences and see live statistics for colors and sizes.
+            </p>
+          </div>
+        </div>
+        <button class="btn btn-outline-secondary btn-sm mt-3 mt-md-0">
+          <i class="bi bi-download me-1"></i>Export
+        </button>
+      </div>
+    </div>
+
+    <div class="row g-3">
+      <!-- Left: form + table -->
+      <div class="col-lg-7">
+        <!-- Form card -->
+        <div class="card bg-glass mb-3">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">
+              <i class="bi bi-funnel me-2 text-info"></i>
+              Add your T‑Shirt preference
+            </h5>
+            <button
+              class="btn btn-sm btn-outline-secondary d-flex align-items-center"
+              type="button"
+              onclick="toggleForm()"
+            >
+              <span id="formToggleText">Show form</span>
+              <i class="bi bi-chevron-down ms-1" id="formToggleIcon"></i>
+            </button>
+          </div>
+          <div class="form-content" id="formContent">
+            <div class="form-content-inner">
+              <form id="tshirtForm" class="row g-3">
+                <input type="hidden" id="editIndex" value="" />
+
+                <div class="col-md-6">
+                  <label for="firstName" class="form-label">First name</label>
+                  <input
+                    type="text"
+                    id="firstName"
+                    class="form-control"
+                    required
+                    placeholder="Enter first name"
+                  />
                 </div>
-                <button class="btn btn-outline-secondary btn-sm mt-3 mt-md-0">
-                    <i class="bi bi-download me-1"></i>Export
-                </button>
+
+                <div class="col-md-6">
+                  <label for="lastName" class="form-label">Last name</label>
+                  <select id="lastName" class="form-select" required>
+                    <option value="">Select last name</option>
+                    <option value="Bhel">Bhel</option>
+                    <option value="Chadda">Chadda</option>
+                    <option value="Dikshit">Dikshit</option>
+                    <option value="Kohli">Kohli</option>
+                    <option value="Saggu">Saggu</option>
+                  </select>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="size" class="form-label">T‑Shirt Size</label>
+                  <select id="size" class="form-select" required>
+                    <option value="">Select size</option>
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">2XL</option>
+                    <option value="3XL">3XL</option>
+                    <option value="4XL">4XL</option>
+                    <option value="5XL">5XL</option>
+                  </select>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="gender" class="form-label">Gender</label>
+                  <select id="gender" class="form-select" required>
+                    <option value="">Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="color" class="form-label">Color</label>
+                  <select id="color" class="form-select" required>
+                    <option value="">Select</option>
+                    <option value="Black">Black</option>
+                    <option value="White">White</option>
+                  </select>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="age" class="form-label">Age</label>
+                  <input
+                    type="number"
+                    id="age"
+                    class="form-control"
+                    min="1"
+                    max="120"
+                    required
+                    placeholder="Age"
+                  />
+                </div>
+
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary w-100">
+                    <i class="bi bi-save me-1"></i>Save
+                  </button>
+                </div>
+              </form>
             </div>
+          </div>
         </div>
 
-        <div class="row g-3">
-            <!-- Left: form + table -->
-            <div class="col-lg-7">
-                <!-- Form card -->
-                <div class="card bg-glass mb-3">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">
-                            <i class="bi bi-funnel me-2 text-info"></i>
-                            Add your T‑Shirt preference
-                        </h5>
-                        <button
-                            class="btn btn-sm btn-outline-secondary d-flex align-items-center"
-                            type="button"
-                            onclick="toggleForm()"
-                        >
-                            <span id="formToggleText">Show form</span>
-                            <i class="bi bi-chevron-down ms-1" id="formToggleIcon"></i>
-                        </button>
-                    </div>
-                    <div class="form-content" id="formContent">
-                        <div class="form-content-inner">
-                            <form id="tshirtForm" class="row g-3">
-                                <input type="hidden" id="editIndex" value="" />
-
-                                <div class="col-md-6">
-                                    <label for="firstName" class="form-label">First name</label>
-                                    <input
-                                        type="text"
-                                        id="firstName"
-                                        class="form-control"
-                                        required
-                                        placeholder="Enter first name"
-                                    />
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label for="lastName" class="form-label">Last name</label>
-                                    <select id="lastName" class="form-select" required>
-                                        <option value="">Select last name</option>
-                                        <option value="Bhel">Bhel</option>
-                                        <option value="Chadda">Chadda</option>
-                                        <option value="Dikshit">Dikshit</option>
-                                        <option value="Kohli">Kohli</option>
-                                        <option value="Saggu">Saggu</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <label for="size" class="form-label">T‑Shirt Size</label>
-                                    <select id="size" class="form-select" required>
-                                        <option value="">Select size</option>
-                                        <option value="XS">XS</option>
-                                        <option value="S">S</option>
-                                        <option value="M">M</option>
-                                        <option value="L">L</option>
-                                        <option value="XL">XL</option>
-                                        <option value="XXL">2XL</option>
-                                        <option value="3XL">3XL</option>
-                                        <option value="4XL">4XL</option>
-                                        <option value="5XL">5XL</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <label for="gender" class="form-label">Gender</label>
-                                    <select id="gender" class="form-select" required>
-                                        <option value="">Select</option>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <label for="color" class="form-label">Color</label>
-                                    <select id="color" class="form-select" required>
-                                        <option value="">Select</option>
-                                        <option value="Black">Black</option>
-                                        <option value="White">White</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <label for="age" class="form-label">Age</label>
-                                    <input
-                                        type="number"
-                                        id="age"
-                                        class="form-control"
-                                        min="1"
-                                        max="120"
-                                        required
-                                        placeholder="Age"
-                                    />
-                                </div>
-
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-primary w-100">
-                                        <i class="bi bi-save me-1"></i>Save
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Table card -->
-                <div class="card bg-glass">
-                    <div class="card-header">
-                        <h5 class="mb-0">
-                            <i class="bi bi-table me-2 text-info"></i>
-                            Saved Preferences
-                        </h5>
-                    </div>
-                    <div class="card-body" id="ordersTable">
-                        <p class="no-data mb-0">
-                            No data yet. Add your first T‑shirt preference using the form above.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right: charts -->
-            <div class="col-lg-5">
-                <div class="row g-3 charts-row">
-                    <div class="col-md-6">
-                        <div class="card bg-glass chart-card h-100">
-                            <div class="card-header">
-                                <h5 class="mb-0">
-                                    <i class="bi bi-pie-chart me-2 text-info"></i>
-                                    Color selection
-                                </h5>
-                                <small class="text-muted">
-                                    Black vs White selections
-                                </small>
-                            </div>
-                            <div class="card-body">
-                                <canvas id="colorChart" height="160"></canvas>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="card bg-glass chart-card h-100">
-                            <div class="card-header">
-                                <h5 class="mb-0">
-                                    <i class="bi bi-pie-chart me-2 text-info"></i>
-                                    Size distribution
-                                </h5>
-                                <small class="text-muted">
-                                    Share of each size
-                                </small>
-                            </div>
-                            <div class="card-body">
-                                <canvas id="sizeChart" height="160"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Table card -->
+        <div class="card bg-glass">
+          <div class="card-header">
+            <h5 class="mb-0">
+              <i class="bi bi-table me-2 text-info"></i>
+              Saved Preferences
+            </h5>
+          </div>
+          <div class="card-body" id="ordersTable">
+            <p class="no-data mb-0">
+              No data yet. Add your first T‑shirt preference using the form above.
+            </p>
+          </div>
         </div>
-    </main>
+      </div>
+
+      <!-- Right: charts -->
+      <div class="col-lg-5">
+        <div class="row g-3 charts-row">
+          <div class="col-md-6">
+            <div class="card bg-glass chart-card h-100">
+              <div class="card-header">
+                <h5 class="mb-0">
+                  <i class="bi bi-pie-chart me-2 text-info"></i>
+                  Color selection
+                </h5>
+                <small class="text-muted">
+                  Black vs White selections
+                </small>
+              </div>
+              <div class="card-body">
+                <canvas id="colorChart" height="160"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card bg-glass chart-card h-100">
+              <div class="card-header">
+                <h5 class="mb-0">
+                  <i class="bi bi-pie-chart me-2 text-info"></i>
+                  Size distribution
+                </h5>
+                <small class="text-muted">
+                  Share of each size
+                </small>
+              </div>
+              <div class="card-body">
+                <canvas id="sizeChart" height="160"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
 </div>
 
 <!-- Duplicate error modal -->
 <div
-    class="modal fade"
-    id="duplicateModal"
-    tabindex="-1"
-    aria-hidden="true"
+  class="modal fade"
+  id="duplicateModal"
+  tabindex="-1"
+  aria-hidden="true"
 >
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header pb-0">
-                <h5 class="modal-title text-danger">
-                    <i class="bi bi-exclamation-triangle me-2"></i>
-                    Duplicate entry
-                </h5>
-            <button
-                    type="button"
-                    class="btn-close btn-close-white"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                ></button>
-            </div>
-            <div class="modal-body pt-2" id="duplicateMessage"></div>
-            <div class="modal-footer pt-0">
-                <button
-                    type="button"
-                    class="btn btn-sm btn-outline-secondary"
-                    data-bs-dismiss="modal"
-                >
-                    OK
-                </button>
-            </div>
-        </div>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header pb-0">
+        <h5 class="modal-title text-danger">
+          <i class="bi bi-exclamation-triangle me-2"></i>
+          Duplicate entry
+        </h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body pt-2" id="duplicateMessage"></div>
+      <div class="modal-footer pt-0">
+        <button
+          type="button"
+          class="btn btn-sm btn-outline-secondary"
+          data-bs-dismiss="modal"
+        >
+          OK
+        </button>
+      </div>
     </div>
+  </div>
 </div>
 
 <!-- Bootstrap JS bundle + Chart.js -->
@@ -435,333 +436,328 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-    const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyaUnC0qd19kA_W0q5Nd3PYb6SVxGMcQXr79Fdvx2V3V-xdEi6GqxUYLSIXNP6zmfQaLg/exec";
+  let orders = [];
+  let colorChart = null;
+  let sizeChart = null;
 
-    let orders = [];
-    let colorChart = null;
-    let sizeChart = null;
+  const duplicateModalEl = document.getElementById("duplicateModal");
+  const duplicateModal = new bootstrap.Modal(duplicateModalEl);
 
-    const duplicateModalEl = document.getElementById("duplicateModal");
-    const duplicateModal = new bootstrap.Modal(duplicateModalEl);
-
-    function loadFromSheet() {
-	  google.script.run
-		.withSuccessHandler(function(rows) {
-		  console.log('loadFromSheet rows:', rows);   // debug
-		  orders = rows.map(r => ({
-			firstName: r.firstName || "",
-			lastName:  r.lastName  || "",
-			size:      r.size      || "",
-			gender:    r.gender    || "",
-			color:     r.color     || "",
-			age:       r.age       || "",
-			date:      r.date || r.Timestamp || ""
-		  }));
-		  displayOrders();
-		})
-		.withFailureHandler(function(err) {
-		  console.error("Error loading from sheet:", err);
-		})
-		.getOrders();   // <- must match function name
-	}
-
-
-    function toggleForm(forceOpen = null) {
-        const wrapper = document.getElementById("formContent");
-        const inner = wrapper.querySelector(".form-content-inner");
-        const icon = document.getElementById("formToggleIcon");
-        const text = document.getElementById("formToggleText");
-        const firstNameInput = document.getElementById("firstName");
-
-        const isOpen = wrapper.style.height && wrapper.style.height !== "0px";
-        const shouldOpen =
-            forceOpen === true ? true :
-            forceOpen === false ? false :
-            !isOpen;
-
-        if (shouldOpen) {
-            const fullHeight = inner.offsetHeight;
-            wrapper.style.height = fullHeight + "px";
-            icon.classList.remove("bi-chevron-down");
-            icon.classList.add("bi-chevron-up");
-            text.textContent = "Hide form";
-
-            setTimeout(() => {
-                if (firstNameInput) firstNameInput.focus();
-            }, 260);
-        } else {
-            wrapper.style.height = "0px";
-            icon.classList.remove("bi-chevron-up");
-            icon.classList.add("bi-chevron-down");
-            text.textContent = "Show form";
-        }
-    }
-
-    function classifyAge(age) {
-        const n = Number(age);
-        if (n >= 1 && n <= 10) return "Kid";
-        if (n >= 11 && n <= 20) return "Teenager";
-        return "Adult";
-    }
-
-    function displayOrders() {
-        const container = document.getElementById("ordersTable");
-
-        if (orders.length === 0) {
-            container.innerHTML =
-                '<p class="no-data mb-0">No data yet. Add your first T‑shirt preference using the form above.</p>';
-            updateCharts();
-            return;
-        }
-
-        const grouped = {};
-        for (const o of orders) {
-            const key = o.lastName || "Other";
-            if (!grouped[key]) grouped[key] = [];
-            grouped[key].push(o);
-        }
-        const groupNames = Object.keys(grouped).sort((a, b) =>
-            a.localeCompare(b)
-        );
-
-        let html = `
-            <div class="table-responsive">
-                <table class="table table-dark-glass align-middle mb-0">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>First name</th>
-                            <th>Last name</th>
-                            <th>Size</th>
-                            <th>Color</th>
-                            <th>Gender</th>
-                            <th>Age</th>
-                            <th>I am</th>
-                            <th>Date</th>
-                            <th class="text-end">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-        `;
-
-        let rowIndex = 1;
-        groupNames.forEach((group) => {
-            const members = grouped[group].length;
-            const label = `${group}'s Family (${members})`;
-            html += `
-                <tr class="group-row">
-                    <td colspan="10">
-                        <i class="bi bi-people me-2"></i>${label}
-                    </td>
-                </tr>
-            `;
-            grouped[group].forEach((o) => {
-                const idx = orders.indexOf(o);
-                const ageLabel = classifyAge(o.age);
-                html += `
-                    <tr>
-                        <td>${rowIndex++}</td>
-                        <td>${o.firstName}</td>
-                        <td>${o.lastName}</td>
-                        <td>${o.size}</td>
-                        <td>${o.color}</td>
-                        <td>${o.gender}</td>
-                        <td>${o.age}</td>
-                        <td>${ageLabel}</td>
-                        <td>${o.date}</td>
-                        <td class="text-end">
-                            <button class="btn btn-outline-info btn-sm btn-sm-pill me-1" onclick="editOrder(${idx})">
-                                <i class="bi bi-pencil-square"></i>
-                            </button>
-                            <button class="btn btn-outline-danger btn-sm btn-sm-pill" onclick="deleteOrder(${idx})">
-                                <i class="bi bi-trash"></i>
-                            </button>
-                        </td>
-                    </tr>
-                `;
-            });
-        });
-
-        html += "</tbody></table></div>";
-        container.innerHTML = html;
-
-        updateCharts();
-    }
-
-    function resetForm() {
-        document.getElementById("tshirtForm").reset();
-        document.getElementById("editIndex").value = "";
-    }
-
-    function editOrder(index) {
-        const o = orders[index];
-        document.getElementById("firstName").value = o.firstName;
-        document.getElementById("lastName").value = o.lastName;
-        document.getElementById("size").value = o.size;
-        document.getElementById("gender").value = o.gender;
-        document.getElementById("color").value = o.color;
-        document.getElementById("age").value = o.age;
-        document.getElementById("editIndex").value = index;
-        toggleForm(true);
-    }
-
-    function deleteOrder(index) {
-        orders.splice(index, 1);
-        // Note: this only removes locally; you could add a delete call to Apps Script if needed.
+  // --- LOAD FROM SHEET VIA google.script.run ---
+  function loadFromSheet() {
+    google.script.run
+      .withSuccessHandler(function(rows) {
+        console.log('loadFromSheet rows:', rows);
+        orders = rows.map(r => ({
+          firstName: r.firstName || "",
+          lastName:  r.lastName  || "",
+          size:      r.size      || "",
+          gender:    r.gender    || "",
+          color:     r.color     || "",
+          age:       r.age       || "",
+          date:      r.date || r.Timestamp || ""
+        }));
         displayOrders();
+      })
+      .withFailureHandler(function(err) {
+        console.error("Error loading from sheet:", err);
+      })
+      .getOrders();
+  }
+
+  function toggleForm(forceOpen = null) {
+    const wrapper = document.getElementById("formContent");
+    const inner = wrapper.querySelector(".form-content-inner");
+    const icon = document.getElementById("formToggleIcon");
+    const text = document.getElementById("formToggleText");
+    const firstNameInput = document.getElementById("firstName");
+
+    const isOpen = wrapper.style.height && wrapper.style.height !== "0px";
+    const shouldOpen =
+      forceOpen === true ? true :
+      forceOpen === false ? false :
+      !isOpen;
+
+    if (shouldOpen) {
+      const fullHeight = inner.offsetHeight;
+      wrapper.style.height = fullHeight + "px";
+      icon.classList.remove("bi-chevron-down");
+      icon.classList.add("bi-chevron-up");
+      text.textContent = "Hide form";
+
+      setTimeout(() => {
+        if (firstNameInput) firstNameInput.focus();
+      }, 260);
+    } else {
+      wrapper.style.height = "0px";
+      icon.classList.remove("bi-chevron-up");
+      icon.classList.add("bi-chevron-down");
+      text.textContent = "Show form";
+    }
+  }
+
+  function classifyAge(age) {
+    const n = Number(age);
+    if (n >= 1 && n <= 10) return "Kid";
+    if (n >= 11 && n <= 20) return "Teenager";
+    return "Adult";
+  }
+
+  function displayOrders() {
+    const container = document.getElementById("ordersTable");
+
+    if (orders.length === 0) {
+      container.innerHTML =
+        '<p class="no-data mb-0">No data yet. Add your first T‑shirt preference using the form above.</p>';
+      updateCharts();
+      return;
     }
 
-    function openDuplicateModal(message) {
-        document.getElementById("duplicateMessage").textContent = message;
-        duplicateModal.show();
+    const grouped = {};
+    for (const o of orders) {
+      const key = o.lastName || "Other";
+      if (!grouped[key]) grouped[key] = [];
+      grouped[key].push(o);
     }
+    const groupNames = Object.keys(grouped).sort((a, b) =>
+      a.localeCompare(b)
+    );
 
-    function getColorCounts() {
-        const blackCount = orders.filter((o) => o.color === "Black").length;
-        const whiteCount = orders.filter((o) => o.color === "White").length;
-        return { blackCount, whiteCount };
-    }
+    let html = `
+      <div class="table-responsive">
+        <table class="table table-dark-glass align-middle mb-0">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>First name</th>
+              <th>Last name</th>
+              <th>Size</th>
+              <th>Color</th>
+              <th>Gender</th>
+              <th>Age</th>
+              <th>I am</th>
+              <th>Date</th>
+              <th class="text-end">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+    `;
 
-    function getSizeCounts() {
-        const sizeLabels = ["XS", "S", "M", "L", "XL", "XXL", "3XL", "4XL", "5XL"];
-        const counts = sizeLabels.map(
-            (size) => orders.filter((o) => o.size === size).length
+    let rowIndex = 1;
+    groupNames.forEach((group) => {
+      const members = grouped[group].length;
+      const label = `${group}'s Family (${members})`;
+      html += `
+        <tr class="group-row">
+          <td colspan="10">
+            <i class="bi bi-people me-2"></i>${label}
+          </td>
+        </tr>
+      `;
+      grouped[group].forEach((o) => {
+        const idx = orders.indexOf(o);
+        const ageLabel = classifyAge(o.age);
+        html += `
+          <tr>
+            <td>${rowIndex++}</td>
+            <td>${o.firstName}</td>
+            <td>${o.lastName}</td>
+            <td>${o.size}</td>
+            <td>${o.color}</td>
+            <td>${o.gender}</td>
+            <td>${o.age}</td>
+            <td>${ageLabel}</td>
+            <td>${o.date}</td>
+            <td class="text-end">
+              <button class="btn btn-outline-info btn-sm btn-sm-pill me-1" onclick="editOrder(${idx})">
+                <i class="bi bi-pencil-square"></i>
+              </button>
+              <button class="btn btn-outline-danger btn-sm btn-sm-pill" onclick="deleteOrder(${idx})">
+                <i class="bi bi-trash"></i>
+              </button>
+            </td>
+          </tr>
+        `;
+      });
+    });
+
+    html += "</tbody></table></div>";
+    container.innerHTML = html;
+
+    updateCharts();
+  }
+
+  function resetForm() {
+    document.getElementById("tshirtForm").reset();
+    document.getElementById("editIndex").value = "";
+  }
+
+  function editOrder(index) {
+    const o = orders[index];
+    document.getElementById("firstName").value = o.firstName;
+    document.getElementById("lastName").value = o.lastName;
+    document.getElementById("size").value = o.size;
+    document.getElementById("gender").value = o.gender;
+    document.getElementById("color").value = o.color;
+    document.getElementById("age").value = o.age;
+    document.getElementById("editIndex").value = index;
+    toggleForm(true);
+  }
+
+  function deleteOrder(index) {
+    orders.splice(index, 1);
+    displayOrders();
+  }
+
+  function openDuplicateModal(message) {
+    document.getElementById("duplicateMessage").textContent = message;
+    duplicateModal.show();
+  }
+
+  function getColorCounts() {
+    const blackCount = orders.filter((o) => o.color === "Black").length;
+    const whiteCount = orders.filter((o) => o.color === "White").length;
+    return { blackCount, whiteCount };
+  }
+
+  function getSizeCounts() {
+    const sizeLabels = ["XS", "S", "M", "L", "XL", "XXL", "3XL", "4XL", "5XL"];
+    const counts = sizeLabels.map(
+      (size) => orders.filter((o) => o.size === size).length
+    );
+    return { sizeLabels, counts };
+  }
+
+  function updateCharts() {
+    updateColorChart();
+    updateSizeChart();
+  }
+
+  function updateColorChart() {
+    const { blackCount, whiteCount } = getColorCounts();
+    const ctx = document.getElementById("colorChart").getContext("2d");
+
+    const data = {
+      labels: ["Black", "White"],
+      datasets: [
+        {
+          label: "Color count",
+          data: [blackCount, whiteCount],
+          backgroundColor: ["#000000", "#ffffff"],
+          borderColor: ["#111827", "#e5e7eb"],
+          borderWidth: 1,
+        },
+      ],
+    };
+
+    const options = {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: true,
+          labels: { color: "#e5e7eb" },
+        },
+      },
+    };
+
+    if (colorChart) colorChart.destroy();
+    colorChart = new Chart(ctx, { type: "doughnut", data, options });
+  }
+
+  function updateSizeChart() {
+    const { sizeLabels, counts } = getSizeCounts();
+    const ctx = document.getElementById("sizeChart").getContext("2d");
+
+    const data = {
+      labels: sizeLabels,
+      datasets: [
+        {
+          label: "Size count",
+          data: counts,
+          backgroundColor: [
+            "#f97316",
+            "#facc15",
+            "#22c55e",
+            "#0ea5e9",
+            "#6366f1",
+            "#a855f7",
+            "#ec4899",
+            "#f97316aa",
+            "#22c55eaa",
+          ],
+          borderColor: "#020617",
+          borderWidth: 1,
+        },
+      ],
+    };
+
+    const options = {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: true, labels: { color: "#e5e7eb" } },
+      },
+    };
+
+    if (sizeChart) sizeChart.destroy();
+    sizeChart = new Chart(ctx, { type: "doughnut", data, options });
+  }
+
+  // --- SUBMIT: SAVE VIA google.script.run ---
+  document
+    .getElementById("tshirtForm")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const currentIndex = document.getElementById("editIndex").value;
+      const firstName = document.getElementById("firstName").value.trim();
+      const lastName = document.getElementById("lastName").value;
+
+      if (currentIndex === "") {
+        const exists = orders.some(
+          (o) =>
+            o.firstName.toLowerCase() === firstName.toLowerCase() &&
+            o.lastName === lastName
         );
-        return { sizeLabels, counts };
-    }
+        if (exists) {
+          openDuplicateModal(
+            `An entry with name ${firstName} ${lastName} already exists. Please use a different name or edit the existing entry.`
+          );
+          return;
+        }
+      }
 
-    function updateCharts() {
-        updateColorChart();
-        updateSizeChart();
-    }
+      const formData = {
+        firstName,
+        lastName,
+        size: document.getElementById("size").value,
+        gender: document.getElementById("gender").value,
+        color: document.getElementById("color").value,
+        age: document.getElementById("age").value,
+        date: new Date().toLocaleDateString(),
+      };
 
-    function updateColorChart() {
-        const { blackCount, whiteCount } = getColorCounts();
-        const ctx = document.getElementById("colorChart").getContext("2d");
+      google.script.run
+        .withSuccessHandler(function(result) {
+          if (currentIndex !== "") {
+            orders[Number(currentIndex)] = formData;
+          } else {
+            orders.push(formData);
+          }
+          resetForm();
+          toggleForm(false);
+          displayOrders();
+        })
+        .withFailureHandler(function(err) {
+          console.error("Sheet save error:", err);
+          alert("Error saving to sheet: " + err.message);
+        })
+        .saveOrder(formData);
+    });
 
-        const data = {
-            labels: ["Black", "White"],
-            datasets: [
-                {
-                    label: "Color count",
-                    data: [blackCount, whiteCount],
-                    backgroundColor: ["#000000", "#ffffff"],
-                    borderColor: ["#111827", "#e5e7eb"],
-                    borderWidth: 1,
-                },
-            ],
-        };
-
-        const options = {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: true,
-                    labels: { color: "#e5e7eb" },
-                },
-            },
-        };
-
-        if (colorChart) colorChart.destroy();
-        colorChart = new Chart(ctx, { type: "doughnut", data, options });
-    }
-
-    function updateSizeChart() {
-        const { sizeLabels, counts } = getSizeCounts();
-        const ctx = document.getElementById("sizeChart").getContext("2d");
-
-        const data = {
-            labels: sizeLabels,
-            datasets: [
-                {
-                    label: "Size count",
-                    data: counts,
-                    backgroundColor: [
-                        "#f97316",
-                        "#facc15",
-                        "#22c55e",
-                        "#0ea5e9",
-                        "#6366f1",
-                        "#a855f7",
-                        "#ec4899",
-                        "#f97316aa",
-                        "#22c55eaa",
-                    ],
-                    borderColor: "#020617",
-                    borderWidth: 1,
-                },
-            ],
-        };
-
-        const options = {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: { display: true, labels: { color: "#e5e7eb" } },
-            },
-        };
-
-        if (sizeChart) sizeChart.destroy();
-        sizeChart = new Chart(ctx, { type: "doughnut", data, options });
-    }
-
-    document
-        .getElementById("tshirtForm")
-        .addEventListener("submit", async function (e) {
-            e.preventDefault();
-
-            const currentIndex = document.getElementById("editIndex").value;
-            const firstName = document.getElementById("firstName").value.trim();
-            const lastName = document.getElementById("lastName").value;
-
-            if (currentIndex === "") {
-                const exists = orders.some(
-                    (o) =>
-                        o.firstName.toLowerCase() === firstName.toLowerCase() &&
-                        o.lastName === lastName
-                );
-                if (exists) {
-                    openDuplicateModal(
-                        `An entry with name ${firstName} ${lastName} already exists. Please use a different name or edit the existing entry.`
-                    );
-                    return;
-                }
-            }
-
-            const formData = {
-                firstName,
-                lastName,
-                size: document.getElementById("size").value,
-                gender: document.getElementById("gender").value,
-                color: document.getElementById("color").value,
-                age: document.getElementById("age").value,
-                date: new Date().toLocaleDateString(),
-            };
-
-            try {
-                await fetch(GOOGLE_APPS_SCRIPT_URL, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(formData),
-                });
-            } catch (err) {
-                console.error("Sheet save error:", err);
-            }
-
-            if (currentIndex !== "") {
-                orders[Number(currentIndex)] = formData;
-            } else {
-                orders.push(formData);
-            }
-
-            resetForm();
-            toggleForm(false);
-            displayOrders();
-        });
-
-    // Load from Google Sheet on page load
-    loadFromSheet();
+  // Load data on page open
+  loadFromSheet();
 </script>
 </body>
 </html>
