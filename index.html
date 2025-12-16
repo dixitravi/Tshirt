@@ -444,25 +444,27 @@
     const duplicateModalEl = document.getElementById("duplicateModal");
     const duplicateModal = new bootstrap.Modal(duplicateModalEl);
 
-    async function loadFromSheet() {
-        try {
-            const res = await fetch(GOOGLE_APPS_SCRIPT_URL);
-            const rows = await res.json(); // array of objects from doGet
-            // Map sheet rows into internal format.
-            orders = rows.map(r => ({
-                firstName: r.firstName || "",
-                lastName:  r.lastName  || "",
-                size:      r.size      || "",
-                gender:    r.gender    || "",
-                color:     r.color     || "",
-                age:       r.age       || "",
-                date:      r.date || r.Timestamp || ""
-            }));
-        } catch (err) {
-            console.error("Error loading from sheet:", err);
-        }
-        displayOrders();
-    }
+    function loadFromSheet() {
+	  google.script.run
+		.withSuccessHandler(function(rows) {
+		  console.log('loadFromSheet rows:', rows);   // debug
+		  orders = rows.map(r => ({
+			firstName: r.firstName || "",
+			lastName:  r.lastName  || "",
+			size:      r.size      || "",
+			gender:    r.gender    || "",
+			color:     r.color     || "",
+			age:       r.age       || "",
+			date:      r.date || r.Timestamp || ""
+		  }));
+		  displayOrders();
+		})
+		.withFailureHandler(function(err) {
+		  console.error("Error loading from sheet:", err);
+		})
+		.getOrders();   // <- must match function name
+	}
+
 
     function toggleForm(forceOpen = null) {
         const wrapper = document.getElementById("formContent");
